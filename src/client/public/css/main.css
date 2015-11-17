@@ -1,0 +1,93 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: green;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.rotate90{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rotate180{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.domino{
+  height: 100px
+}
+
+/*.domino {
+    float: left;
+    font-size: 20px;
+    width: 6em;
+    height: 12em;
+    margin: 40px;
+    position: relative;
+    -webkit-border-radius: .8em;
+    -moz-border-radius: .8em;
+    border-radius: .8em;
+    -moz-box-shadow:    .3em .3em 0em .2em #333;
+    -webkit-box-shadow: .3em .3em 0em .2em #333;
+    box-shadow:         .3em .3em 0em .2em #333;
+ }
+
+.domino, .domino span {
+    background-color:#000
+  }
+
+.domino .line {
+    width: 5.5em;
+    height: .2em;
+    position: absolute;
+    top: 5.7em;
+    left: .25em;
+    background-color: #fff;
+}
+
+ .domino .TC135 {
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 2.4em;
+    left: 2.5em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #fff;
+ }
+
+  .domino .BL23456 {
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 9.6em;
+    left: 1.0em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #fff;
+ }
+
+  .domino .BR23456 {
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 6.4em;
+    left: 4.0em;
+    -webkit-border-radius: 4em;
+    -moz-border-radius: 4em;
+    border-radius: 4em;
+    background-color: #fff;
+ }*/
