@@ -1,3 +1,132 @@
+
+app.controller('MainController', ['$scope', '$location', '$rootScope', '$auth', function($scope, $location, $rootScope, $auth){
+
+  var current;
+  var turn;
+  var playerHand = [];
+
+  var playerEnd;
+  var partyTrainEnd;
+
+  var thisGame;
+  //authenication
+  $scope.authenticate = function(provider) {
+      $auth.authenticate(provider);
+    };
+
+
+
+  //starts game
+  $scope.begin = function(){
+    //makes a copy of dominoes for this game
+    thisGame = dominoes;
+    playerHand = [];
+    //deals out 5 tiles
+    for (var i = 0; i < 5; i++) {
+      if (thisGame.length > 0){
+      var index = Math.floor(Math.random()*thisGame.length);
+      playerHand.push(thisGame[index]);
+        thisGame = thisGame.filter(function(element, i){
+          return thisGame.indexOf(element) !== index;
+        });
+      }
+    }
+    $scope.playerHand = playerHand;
+    playerEnd = 3;
+    partyTrainEnd = 2;
+    console.log(dominoes)
+  };
+
+  $scope.play = function(currentId){
+    var current;
+    for (var i = 0; i < playerHand.length; i++) {
+      if(playerHand[i].id === currentId){
+        current = playerHand[i];
+      }
+    }
+    if(current.leftVal === playerEnd || playerEnd=== null || current.rightVal === playerEnd){
+      console.log("playable!");
+    }
+    else{
+      console.log("Can't play that one!")
+    }
+  };
+
+  //draw one domino
+  $scope.drawOne = function(){
+    if (thisGame.length > 0){
+    var index = Math.floor(Math.random()*thisGame.length);
+    playerHand.push(thisGame[index]);
+      thisGame = thisGame.filter(function(element, i){
+        return thisGame.indexOf(element) !== index;
+      });
+      }
+    $scope.playerHand = playerHand;
+  };
+
+  //rotates the dominoes
+  $scope.rotate = function(id){
+    var picked = document.getElementById(id);
+    var angPicked = angular.element(picked);
+    if(angPicked.hasClass('rotate90')){
+      angPicked.removeClass('rotate90');
+      angPicked.addClass('rotate180');
+    }
+    else if(angPicked.hasClass('rotate180')){
+      angPicked.removeClass('rotate180');
+      angPicked.addClass('rotate270');
+    }
+    else if(angPicked.hasClass('rotate270')){
+      angPicked.removeClass('rotate270');
+      angPicked.addClass('rotate360');
+    }
+    else if(angPicked.hasClass('rotate360')){
+      angPicked.removeClass('rotate360');
+      angPicked.addClass('rotate90');
+    }
+    else{
+      angPicked.removeClass('rotate90');
+      angPicked.addClass('rotate90');
+    }
+  };
+
+  $scope.select = function(id){
+    console.log(id);
+  };
+
+
+}]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var dominoes = [
   {id:1, leftVal:0, rightVal:0, img: 'public/css/tiles/00.png'},
   {id:2, leftVal:0, rightVal:1, img: 'public/css/tiles/01.png'},
@@ -103,47 +232,3 @@ var dominoes = [
 
   // {id:80, leftVal:12, rightVal:12, img: 'public/css/tiles/1212.png'}
 ];
-
-app.controller('MainController', ['$scope', '$location', '$rootScope', function($scope, $location, $rootScope){
-
-  var current;
-  var turn;
-  var playerHand = [];
-
-  $scope.begin = function(){
-    playerHand = [];
-    for (var i = 0; i < 5; i++) {
-      if (dominoes.length > 0){
-      var index = Math.floor(Math.random()*dominoes.length);
-      playerHand.push(dominoes[index]);
-        dominoes = dominoes.filter(function(element, i){
-          return dominoes.indexOf(element) !== index;
-        });
-        }
-      }
-      $scope.playerHand = playerHand;
-      console.log(dominoes.sort(), playerHand.sort());
-    };
-
-    $scope.drawOne = function(){
-      if (dominoes.length > 0){
-      var index = Math.floor(Math.random()*dominoes.length);
-      playerHand.push(dominoes[index]);
-        dominoes = dominoes.filter(function(element, i){
-          return dominoes.indexOf(element) !== index;
-        });
-        }
-      $scope.playerHand = playerHand;
-      console.log(dominoes.sort(), playerHand.sort());
-    };
-
-  $scope.test = dominoes[0].img;
-
-  $scope.rotate = function(){
-    console.log(this);
-    // this.addClass("rotate100");
-  };
-
-  $scope.message ="Woooo";
-
-}]);

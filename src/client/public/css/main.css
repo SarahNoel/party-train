@@ -17,6 +17,14 @@ a {
 }
 
 .rotate180{
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.rotate270{
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
@@ -24,8 +32,29 @@ a {
     transform: rotate(-90deg);
 }
 
+.rotate180{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .domino{
   height: 100px
+}
+
+.domino-box{
+  display: inline-flex;
+  margin: 10px;
+}
+
+.start-box{
+  display: table;
+  margin: auto;
+  border: thick black solid;
+  width: 110px;
+  height: 55px;
 }
 
 /*.domino {

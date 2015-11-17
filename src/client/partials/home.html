@@ -1,7 +1,7 @@
 <h1>Let's Play woooo</h1>
 
 
-<button class = 'btn btn-primary' ng-click = 'begin()'>Shuffle</button>
+<button class = 'btn btn-primary' ng-click = 'begin()'>Start a Game!</button>
 
 <br>
 <br>
@@ -13,11 +13,14 @@
 
 
 
+<div class = 'start-box'></div>
 
 
-<div ng-repeat='tile in playerHand'>
 
-<img class='domino' src = '{{tile.img}}' ng-click='rotate()'>
+<div class='domino-box' ng-repeat='tile in playerHand'>
+
+  <img id= '{{tile.id}}' ng-dblclick = 'play(tile.id)'  class='domino' src = '{{tile.img}}' ng-click='rotate(tile.id)'>
+
 
 <br>
 
